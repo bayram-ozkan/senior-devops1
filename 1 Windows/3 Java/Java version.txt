@@ -1,0 +1,12 @@
+--Java Version
+java --Version
+javac --Version
+
+
+--Path(Ortam Değişkenleri)
+Değişkende;
+1- JAVA_HOME
+2- C:\ProgramFiles\Java\jdk-11
+
+Path
+3- %JAVA_HOME%\BİN
