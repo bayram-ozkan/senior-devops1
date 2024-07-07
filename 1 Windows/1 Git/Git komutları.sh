@@ -280,6 +280,7 @@ git push origin v2.0.0
 
 # switch /delete
 git chechout v1.0.0
+git checkout main
 git chechout v2.0.0 
 git tag --delete v1.0.0
 git tag --delete v2.0.0
