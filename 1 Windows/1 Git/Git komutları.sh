@@ -65,6 +65,11 @@ git log --all --decorate --oneline --graph --all
 --graph: Commit geçmişini bir grafik olarak gösterir.
 *Git deposundaki commit geçmişini daha görsel ve  anlamlı bir şekilde görüntüler
 
+#######################################################################################################################
+#######################################################################################################################
+-- git normalde 100MB yükleme kapasitesine sahiptir.
+Biz bu rakamı artırmı artıraçağız.
+
 
 #######################################################################################################################
 #######################################################################################################################
@@ -106,18 +111,30 @@ git add jav*
 Henüz commit edilmemiş değişiklikleri iptal eder ve dosyaları en son commit edilmiş hallerine geri döndürür.
 git restore jav*
 
+# Aynı anda sadece benim istediğim dosyaları ekle
+git add deneme1.txt deneme2.txt deneme3.txt
 
 
 #######################################################################################################################
 #######################################################################################################################
+-- COMMIT
 
-
+git commit -m "JIRA_TASK datebase  crud added"
 
 
 
 #######################################################################################################################
 #######################################################################################################################
+-- ADD ve COMMIT aynı anda
 
+-- 1. YOL
+git add . 
+git commit -m "first commit"
+
+
+-- 2. YOL
+(Önceden add yapılması gerekiyor)
+git commit -a -m "first commit"
 
 
 
