@@ -1,6 +1,5 @@
-
-############################################################
-############################################################
+#######################################################################################################################
+#######################################################################################################################
 
 Git : Global Information Tracked
 VSC : Version Control System
@@ -44,35 +43,14 @@ git config --system
 
 #######################################################################################################################
 #######################################################################################################################
--- ALIAS
-
-git log --all --decorate --oneline --graph --all  
-#
-git config --global alias.graph "log --decorate --oneline --graph --all"
-##
-git log --all --decorate --oneline --graph --all   -> git graph
-*Uzun bir komut yazmak yerine, kısa ve hatırlaması kolay bir komutla aynı işlevi gerçekleştirebilmenizi sağlar.
-
-git config --get-regexp alias
-*Tanımlanmış tüm alias'ları ve onların karşılık geldiği komutları listeler.
-
-
-
-git log --all --decorate --oneline --graph --all 
---all: Tüm dallardaki commitleri gösterir.
---decorate: Commitlerin yanında dalları ve etiketleri (tags) gösterir.
---oneline: Her commit'i tek bir satırda özetler.
---graph: Commit geçmişini bir grafik olarak gösterir.
-*Git deposundaki commit geçmişini daha görsel ve  anlamlı bir şekilde görüntüler
-
-#######################################################################################################################
-#######################################################################################################################
 -- git normalde 100MB yükleme kapasitesine sahiptir.
 Biz bu rakamı artırmı artıraçağız.
 
 
 #######################################################################################################################
 #######################################################################################################################
+-- INIT / REMOTE
+
 echo "# senior-devops1" >> README.md
 git init
 git add . 
@@ -80,6 +58,16 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/nakzoo/senior-devops1.git
 git push -u origin main
+# git push origon --set upstream origin main
+
+
+# Remeto Addresini göster
+git remote -v 
+* Git deposunda yapılandırlılmış tüm repository lerin detaylarını listeler
+
+git remote    ==> origin remote name
+git remote  set url https://github.com/nakzoo/senior-devops1.git
+*Uzak repository URL sini günceller
 
 
 #######################################################################################################################
@@ -110,15 +98,42 @@ git restore jav*
 git add deneme1.txt deneme2.txt deneme3.txt
 
 
-
 #######################################################################################################################
 #######################################################################################################################
--- STATUS /LOG
-
-git log
+-- STATUS
 
 git status
+*Mevcut Git deposunun durumunu gösterir. Çalışma Dizinindede ve staging area da  yapılan değişlikleri listeler ve hangi dosyaların
+takip edilip eğilmediğini, hangi değişikliklerin stage edilip edilmediğini gösterir.
 
+git restore --staged f5e0847cf157d96a734f476820d59b899ddc7d0b 
+* staging area'dan bir dosyayı çıkararak onu tekrar çalışma dizinine geri alır. "git add" komutu ile stage edilmiş değişiklikleri
+geri almak için kullanılır.
+
+
+#######################################################################################################################
+#######################################################################################################################
+-- ALIAS
+
+git log --all --decorate --oneline --graph --all  
+#
+git config --global alias.graph "log --decorate --oneline --graph --all"
+##
+git log --all --decorate --oneline --graph --all   -> git graph
+*Uzun bir komut yazmak yerine, kısa ve hatırlaması kolay bir komutla aynı işlevi gerçekleştirebilmenizi sağlar.
+
+git config --get-regexp alias
+*Tanımlanmış tüm alias'ları ve onların karşılık geldiği komutları listeler.
+
+
+
+#######################################################################################################################
+#######################################################################################################################
+ -- LOG
+
+git log
+*Git deposundaki commit geçmişini görüntülemek için kullanılır. Yapılan commit'ler 
+hakkında ayrıntılı bilgiler sağlar ve commit mesajları, tarih, yazar bilgileri gibi önemli detayları içerir.
 
 
 #######################################################################################################################
@@ -144,6 +159,7 @@ git commit -a -m "first commit"
 git log
 
 git commit -amend -m "commit sonrası"
+
 
 
 
