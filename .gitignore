@@ -1,0 +1,9 @@
+# file untracked  (Dosyayı takip etme)
+secret.txt
+
+
+# Directory untracked (Dizini takip etme)
+/node_modules
+
+#  Logs untracked (Sonu log olan dosyaları takip etme)
+*.log
