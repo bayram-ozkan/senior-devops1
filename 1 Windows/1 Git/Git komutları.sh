@@ -139,6 +139,12 @@ git commit -m "first commit"
 git commit -a -m "first commit"
 
 
+# Git Message 
+
+git log
+
+git commit -amend -m "commit sonrası"
+
 
 
 #######################################################################################################################
