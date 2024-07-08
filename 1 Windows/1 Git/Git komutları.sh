@@ -277,22 +277,66 @@ git push <remoteAlias> v2.0.0
 git push origin v2.0.0
 
 
-
 # switch /delete
 git chechout v1.0.0
 git checkout main
 git chechout v2.0.0 
 git tag --delete v1.0.0
 git tag --delete v2.0.0
+git push origin --tags
+
+
 
 #######################################################################################################################
 #######################################################################################################################
+-- BRANCH
+
+*Git'te branch (dal) oluşturmak, listelemek, yeniden adlandırmak ve silmek için kullanılır. 
+Branch'ler, projede paralel geliştirme yapmayı ve yeni özellikler eklemeyi kolaylaştıran bağımsız çalışma alanları sağlar.
+*Branch yapmadan önce mutlaka "git add"  ve "git commit" yapmalıyız.
+
+git branch -M main
+git branch --help
+
+git branch
+git branch --all
+git branch -a 
 
 
 
+#Senaryo-1
+git add . 
+git commit -m "Senaryo-1 "
+git branch  backend                  -> Branch oluştur
+git chechout backend                 -> Branch e geçiş yapar.
+cat >> backend.txt
+git add .
+git commit -m "backend branch"
+git push -u origin backend
+git switch main 
+git merge backend
+git branch -D backend               -> Belirtilen branch i siler.
 
 
 
+#Senaryo-2
+git add . 
+git commit -m "Senaryo-2 "
+git checkout -b frontend            -> Yeni bir branch oluşturur ve o branch e geçiş yapar.
+git chechout frontend
+cat >> frontend.txt
+git add .
+git commit -m "frontend branch"
+git push -u origin frontend
+git switch main  
+git merge --no-ff frontend
+git branch -D frontend  
+
+
+#Merge çeşitleri
+fast-forward
+no fast-forward
+squash
 
 
 
