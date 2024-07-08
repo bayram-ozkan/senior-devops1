@@ -323,7 +323,6 @@ git branch -D backend               -> Belirtilen branch i siler.
 git add . 
 git commit -m "Senaryo-2 "
 git checkout -b frontend            -> Yeni bir branch oluşturur ve o branch e geçiş yapar.
-git chechout frontend
 cat >> frontend.txt
 git add .
 git commit -m "frontend branch"
@@ -338,11 +337,13 @@ fast-forward
 no fast-forward
 squash
 
+# Merge  ve  Rebase Arasındaki farklar
+
+
 
 
 #######################################################################################################################
 #######################################################################################################################
-
 
 
 
