@@ -332,7 +332,7 @@ git switch main
 git merge --no-ff frontend
 git branch -D frontend  
 
-
+ 
 #Merge çeşitleri
 fast-forward
 no fast-forward
