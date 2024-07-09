@@ -37,11 +37,11 @@ git config --global user.email
  yaptığınızda commitlerinize eklenir.Eğer bu ayarları yapmazsanız, Git her commit işleminde bu bilgileri sizden sorar.
 
 git config core.autocrlf true       
-*Çapraz platform geliştirme  ortamlarında uyumululuğu artırır.Windows'da çalıştığı zamanlarda dosyaları CRLF olarak, 
+*Çapraz platform geliştirme  ortamlarında uyumululuğu artırır.Windows da çalıştığı zamanlarda dosyaları CRLF olarak, 
 Unix tabanlı sistemlerde ise LF olarak depolamasını sağlar.
 
 git config --system
-*Git'in sistem düzeyindeki yapılandırma dosyasını ayarlamak veya değiştirmek için kullanılır.(Tüm kullanıcılar ve sistemler)
+*Git in sistem düzeyindeki yapılandırma dosyasını ayarlamak veya değiştirmek için kullanılır.(Tüm kullanıcılar ve sistemler)
 
 
 
@@ -61,7 +61,7 @@ git push -u origin main
 
 # Remeto Addresini göster
 git remote -v 
-* Git deposunda yapılandırlılmış tüm repository lerin detaylarını listeler
+*Git deposunda yapılandırlılmış tüm repository lerin detaylarını listeler
 
 git remote    ==> origin remote name
 git remote  set url https://github.com/nakzoo/senior-devops1.git
@@ -117,10 +117,66 @@ geri almak için kullanılır.
 
 #######################################################################################################################
 #######################################################################################################################
+-- SHOW
+
+git show 
+*Belirli bir nesnenin (commit, tag, tree, blob, vb.) detaylarını görüntülemek için kullanılır. Genellikle commit lerin, 
+tag lerin veya diğer Git nesnelerinin içeriğini ve metadata sını incelemek için kullanılır.
+
+git show HEAD
+*HEAD olarak adlandırılan güncel commit in (en son commit in) detaylarını gösterir. Bu commit in içeriği, metadata 
+(yazar, tarih, mesaj) ve değişiklikleri (diff) hakkında bilgi sağlar.
+
+git checkout HEAD file_name
+*Belirtilen dosyayı  HEAD referansındaki (en son commit teki) haliyle geri yükler. Bu, dosyada yapılmış olan ve 
+henüz commit edilmemiş değişiklikleri iptal eder ve dosyayı en son commit teki durumuna geri döndürür.
+
+
+
+#######################################################################################################################
+#######################################################################################################################
+-- RESET 
+
+git reset
+*Bu komut dosyanın aşamalarını kaldırır ancak dosya içeriğini korur. Resetleme yöntemi sayesinde yeni bir işlem yapmadan 
+ve bilgilerini kaybetmeden değişimleri geri alabilmen mümkün olur.
+
+git reset file_name
+*Dosyayı staging area dan (index) çıkararak commit edilmek üzere işaretlenmiş değişiklikleri geri alır. Bu komut, --soft, 
+--mixed, veya --hard modları ile kullanılmaz
+
+
+git reset HEAD filename
+*Belirtilen dosyayı (veya dosyaları) staging area dan (index) çıkarır, ancak çalışma dizinindeki değişiklikleri etkilemez.
+Dosyanın staging area da (index te) yapılan değişikliklerini geri alır ve bu değişiklikleri sadece çalışma dizininde bırakır.
+
+
+git reset comment_id
+*Git branch inin HEAD ini belirtilen commit e taşır. Bu komut, commit-id ile belirttiğiniz commit teki duruma geri döner
+ve bu işlemi çeşitli modlarda gerçekleştirebilir.
+
+    # --soft
+    git reset --soft comment_id   -> commit e  geri döner, staging area değişikliklerini korur.
+
+
+    # -- mixed
+    git reset --mixed comment_id  -> commite  geri döner, staging area değişikliklerini geri alır.
+
+
+    # --hard
+    git reset --hard commend_id   -> commit e geri döner, staging area ve çalışma dizinindeki değişiklikleri kaybeder.
+
+    #git reset HEAD~1             -> Bir önceki commit e geri döner, staging area değişikliklerini geri alır.
+
+
+
+#######################################################################################################################
+#######################################################################################################################
+
+
 -- ALIAS
 
 *Uzun bir komut yazmak yerine, kısa ve hatırlaması kolay bir komutla aynı işlevi gerçekleştirebilmenizi sağlar.
-
 
 
 #1
@@ -134,7 +190,7 @@ $Kısa komut ->>  "git graph"
 
 
 git config --get-regexp alias
-*Tanımlanmış tüm alias'ları ve onların karşılık geldiği komutları listeler.
+*Tanımlanmış tüm alias ları ve onların karşılık geldiği komutları listeler.
 
 
 
@@ -142,7 +198,7 @@ git config --get-regexp alias
 #######################################################################################################################
  -- LOG
 
-*Git deposundaki commit geçmişini görüntülemek için kullanılır. Yapılan commit'ler hakkında ayrıntılı bilgiler sağlar ve 
+*Git deposundaki commit geçmişini görüntülemek için kullanılır. Yapılan commit ler hakkında ayrıntılı bilgiler sağlar ve 
 commit mesajları, tarih, yazar bilgileri gibi önemli detayları içerir.
 
 git log
@@ -157,6 +213,7 @@ git log
 
  git log
  git diff commitID1 commitID2
+
 
 
 #######################################################################################################################
@@ -195,8 +252,8 @@ git commit -amend -m "commit sonrası"
 
 
 git rm --cached dosya_adı
-*Git'in belirli dosyaları veya dizinleri izlemeyi bırakmasını sağlar, ancak bu dosyaları çalışma dizininde bırakır. 
-Başka bir deyişle, dosyalar silinmiş gibi işaretlenir ve bir sonraki commit'te depodan kaldırılır, ancak dosyalar fiziksel olarak diskten silinmez.
+*Git in belirli dosyaları veya dizinleri izlemeyi bırakmasını sağlar, ancak bu dosyaları çalışma dizininde bırakır. 
+Başka bir deyişle, dosyalar silinmiş gibi işaretlenir ve bir sonraki commit te depodan kaldırılır, ancak dosyalar fiziksel olarak diskten silinmez.
 
 git rm -r --cached dizin_adı
 *dizin_adı adlı dizini ve içindeki tüm dosyaları izlemeyi bırakır.
@@ -208,7 +265,7 @@ git rm -r --cached dizin_adı
 -- STASH
 
 *Çalışma dizininde yaptığınız değişiklikleri geçici olarak kaydederek,çalışma dizinini temiz hale getirir ve değişiklikleri ileride geri almak üzere saklar. 
-Bu komut, henüz commit yapmak istemediğiniz değişiklikleri kaydetmek ve farklı bir branch'e geçmek ya da başka bir iş yapmak için kullanışlıdır.
+Bu komut, henüz commit yapmak istemediğiniz değişiklikleri kaydetmek ve farklı bir branch e geçmek ya da başka bir iş yapmak için kullanışlıdır.
 Stash öncesi mutlaka " git add . " yapılmalıdır.
 
 git statsh --help
@@ -234,7 +291,7 @@ git stash pop  ->  Stash edilen değişikleri geri almak ve listeden kaldırmak 
 #######################################################################################################################
 -- CONFLICT(Çakışma)
 
-*İki farklı değişiklik aynı dosyanın aynı bölgesinde yapıldığında meydana gelir. Çakışmalar, Git'in hangi değişikliklerin 
+*İki farklı değişiklik aynı dosyanın aynı bölgesinde yapıldığında meydana gelir. Çakışmalar, Git in hangi değişikliklerin 
 korunacağına karar verememesi durumunda oluşur ve manuel olarak çözülmesi gerekir.
 
 git reset HEAD~1
@@ -292,8 +349,8 @@ git push origin --tags
 #######################################################################################################################
 -- BRANCH
 
-*Git'te branch (dal) oluşturmak, listelemek, yeniden adlandırmak ve silmek için kullanılır. 
-Branch'ler, projede paralel geliştirme yapmayı ve yeni özellikler eklemeyi kolaylaştıran bağımsız çalışma alanları sağlar.
+*Git te branch (dal) oluşturmak, listelemek, yeniden adlandırmak ve silmek için kullanılır. 
+Branch ler, projede paralel geliştirme yapmayı ve yeni özellikler eklemeyi kolaylaştıran bağımsız çalışma alanları sağlar.
 *Branch yapmadan önce mutlaka "git add"  ve "git commit" yapmalıyız.
 
 git branch -M main
@@ -316,7 +373,7 @@ git commit -m "backend branch"
 git push -u origin backend
 git switch main 
 git merge backend
-git branch -D backend               -> Belirtilen branch i siler.
+git branch -D backend               -> Belirtilen branch i siler. (Birleştirilip birleştirilmediğini kontrol etmez)
 
 
 
@@ -330,7 +387,7 @@ git commit -m "frontend branch"
 git push -u origin frontend
 git switch main  
 git merge --no-ff frontend
-git branch -D frontend  
+git branch -d  frontend             -> Belirtilen branch i siler.
 
  
 #Merge çeşitleri
@@ -364,7 +421,7 @@ https://github.com/settings/keys
 
 *Anahtarınızın doğru şekilde çalıştığından emin olmak için bağlantıyı test edebilirsiniz:
 
-ssh -T git@github.com  ->  Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+ssh -T git@github.com  ->  Hi username! You have successfully authenticated, but GitHub does not provide shell access.
 
 
 
