@@ -344,8 +344,26 @@ squash
 
 #######################################################################################################################
 #######################################################################################################################
+-- SSH KEYGEN
+
+*SSH (Secure Shell) protokolü için bir anahtar çifti oluşturmak amacıyla kullanılan bir komuttur. Bu anahtar çifti, 
+kimlik doğrulama ve güvenli iletişim için kullanılır. GitHub, GitLab ve diğer birçok platformda SSH anahtarları, kimlik doğrulama amacıyla kullanılır.
+
+ssh-keygen -t -rsa -b 4096 -C  "mail_adresi"
+
+#Windows
+cat C:\Users\kullanıcı\.ssh\id_rsa.pub
+
+#Linux
+cat ~/.ssh/id_rsa.pub
+
+GITHUB
+https://github.com/settings/keys
 
 
+*Anahtarınızın doğru şekilde çalıştığından emin olmak için bağlantıyı test edebilirsiniz:
+
+ssh -T git@github.com  ->  Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 
 
 
