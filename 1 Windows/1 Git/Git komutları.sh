@@ -172,8 +172,6 @@ ve bu işlemi çeşitli modlarda gerçekleştirebilir.
 
 #######################################################################################################################
 #######################################################################################################################
-
-
 -- ALIAS
 
 *Uzun bir komut yazmak yerine, kısa ve hatırlaması kolay bir komutla aynı işlevi gerçekleştirebilmenizi sağlar.
@@ -198,10 +196,25 @@ git config --get-regexp alias
 #######################################################################################################################
  -- LOG
 
+git log
 *Git deposundaki commit geçmişini görüntülemek için kullanılır. Yapılan commit ler hakkında ayrıntılı bilgiler sağlar ve 
 commit mesajları, tarih, yazar bilgileri gibi önemli detayları içerir.
 
-git log
+git log -S "keyword"
+*Git depolarında belirli bir kelime veya cümleyi içeren değişiklikleri aramak için kullanılır. Belirttiğiniz 
+keyword kelimesinin veya cümlesinin eklenmiş veya çıkarılmış olduğu commit leri gösterir. 
+
+
+git log -S "refactor" -- path/to/file.txt                               -> path/to/file.txt dosyasında refactor kelimesini içeren commit leri arar.
+
+
+git log -S "performance" --since="2023-01-01" --until="2023-12-31"      ->2023 yılı boyunca performance kelimesini içeren commit leri arar.
+
+
+git log -S "bug" --grep "fix"                                            ->bug kelimesini içeren değişiklikleri ve commit mesajlarında fix kelimesini içeren commit leri arar.
+
+
+git log -S "optimization" --all                                          ->optimization kelimesini içeren değişiklikleri tüm branch lerde arar.
 
 
 
@@ -228,7 +241,6 @@ git commit -m "JIRA_TASK datebase  crud added"
 
 -- Commit (aynı anda add  ve commit)
 
-
 #1. YOL
 git add . 
 git commit -m "first commit"
@@ -238,9 +250,15 @@ git commit -m "first commit"
 git commit -a -m "first commit"
 
 
-#Commit Message 
-git log
+
 git commit -amend -m "commit sonrası"
+*Son yapılan commit i düzenlemek veya değiştirmek için kullanılır. Bu komut, mevcut commit i yeni bir
+commit ile değiştirir,böylece commit mesajını, eklenen veya çıkarılan dosyaları değiştirebilirsiniz. --amend bayrağı, bu işlemi sağlar.
+
+
+git commit --amend --no-edit
+*Mevcut commit i düzenler ve commit mesajını değiştirmeden bırakır. commit mesajını düzenlemek istemediğinizde 
+ancak commit e yeni değişiklikler eklemek veya mevcut değişiklikleri güncellemek istediğinizde kullanışlıdır.
 
 
 
@@ -279,7 +297,7 @@ git stash apply stash@{0}
 git stash drop stash@{0}
 
 
-#Senaryo-2 
+#Senaryo-2  
 git add .
 git stash save  "stash_name"
 git stash list
@@ -376,7 +394,6 @@ git merge backend
 git branch -D backend               -> Belirtilen branch i siler. (Birleştirilip birleştirilmediğini kontrol etmez)
 
 
-
 #Senaryo-2
 git add . 
 git commit -m "Senaryo-2 "
@@ -389,14 +406,60 @@ git switch main
 git merge --no-ff frontend
 git branch -d  frontend             -> Belirtilen branch i siler.
 
+
+
+#######################################################################################################################
+#######################################################################################################################
+-- MERGE
+
+*iki dalı birleştirir ve birleştirme işlemini gerçekleştiren yeni bir commit (merge commit) oluşturur. Mevcut dal üzerinde 
+çalışır ve diğer dalın değişikliklerini mevcut dala ekler.
+
+
+
+git checkout master
+git merge feature-branch
+
  
 #Merge çeşitleri
 fast-forward
 no fast-forward
 squash
 
-# Merge  ve  Rebase Arasındaki farklar
 
+
+#######################################################################################################################
+#######################################################################################################################
+-- REBASE
+
+*Bir dalın tabanını başka bir dalın en son commit ine taşıyan bir Git komutudur. Bu işlem, commit geçmişinizi daha 
+temiz ve doğrusal hale getirir, çünkü commit lerinizi yeniden oluşturur ve diğer dalın üstüne uygular.
+
+
+#Senaryo
+git status
+git checkout master
+git pull origin master
+git checkout feature
+git rebase master
+git add <çözülen-dosya>                 ->conflict in çözülmesi
+git rebase --continue
+git push origin feature --force
+
+
+
+#######################################################################################################################
+##################################################################  #####################################################
+-- MERGE ve REBASE FARKI
+
+
+git merge: 
+İki dalı birleştirir ve ayrı bir merge commit i oluşturur. Geçmişi izlemek kolaydır, ancak commit geçmişi karmaşık olabilir.
+
+
+git rebase: 
+Bir dalı başka bir dalın tabanına yeniden konumlandırır. Geçmişi temiz ve doğrusal yapar, ancak paylaşılan branch lerde
+dikkatli kullanılmalıdır.
 
 
 
