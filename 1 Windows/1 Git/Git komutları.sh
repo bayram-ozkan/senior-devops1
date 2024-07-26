@@ -3,6 +3,7 @@
 #######################################################################################################################
 
 
+
 Git : Global Information Tracked
 VSC : Version Control System
 Dağıtıktır (Distrubuted)
@@ -60,8 +61,11 @@ git push -u origin main
 
 
 # Remeto Addresini göster
-git remote -v 
-*Git deposunda yapılandırlılmış tüm repository lerin detaylarını listeler
+git remote -v   
+*Mevcut Git deposunda tanımlı uzak depoları (remote) ve bu uzak depoların URL lerini gösterir. Bu komut, uzak depoların kısa ,adlarını 
+(örneğin, origin) ve bu kısa adlara karşılık gelen fetch ve push URL lerini listeler. 
+
+
 
 git remote    ==> origin remote name
 git remote  set url https://github.com/nakzoo/senior-devops1.git
@@ -275,6 +279,40 @@ Başka bir deyişle, dosyalar silinmiş gibi işaretlenir ve bir sonraki commit 
 
 git rm -r --cached dizin_adı
 *dizin_adı adlı dizini ve içindeki tüm dosyaları izlemeyi bırakır.
+
+
+
+#######################################################################################################################
+#######################################################################################################################
+README.md
+
+*Bir proje hakkında bilgi veren bir Markdown dosyasıdır. Bu dosya genellikle bir yazılım projesinin kök dizininde bulunur 
+ve projenin ne olduğu, nasıl kurulduğu, nasıl kullanıldığı, katkıda bulunma yönergeleri ve diğer önemli bilgiler hakkında bilgi verir. 
+
+   # Başlık
+   # Özet
+   # Örnek kod parçaçığı
+
+
+
+#######################################################################################################################
+#######################################################################################################################
+LICENSE.md
+
+*Bir projenin lisansını belirtmek için kullanılan LICENSE.md dosyası, projenin kullanım, dağıtım ve değiştirme koşullarını tanımlar. 
+
+# choosealicense.com
+
+
+
+#######################################################################################################################
+#######################################################################################################################
+CODE_OF_CONDUCT.md
+
+*Bir CODE_OF_CONDUCT.md dosyası, projeye katkıda bulunan herkesin uyması gereken davranış kurallarını belirler. Bu, katılımcılar
+arasında saygılı ve profesyonel bir ortam oluşturmayı amaçlar.
+
+# https://www.contributor-covenant.org/
 
 
 
@@ -527,7 +565,6 @@ git lfs install --force
 git lfs track "*.exe"
 git push origin master
 git push origin --force --all 
-
 git log
 git commit --amend --reset-author 
 git push origin --force --all 
