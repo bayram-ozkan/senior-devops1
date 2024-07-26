@@ -301,7 +301,7 @@ LICENSE.md
 
 *Bir projenin lisansını belirtmek için kullanılan LICENSE.md dosyası, projenin kullanım, dağıtım ve değiştirme koşullarını tanımlar. 
 
-# choosealicense.com
+# https://choosealicense.com/
 
 
 
