@@ -15,7 +15,11 @@ GitHub(Microsoft)
 Açık Kaynak kod (Open Source )  
 
 GUI : Graphics User Interface
+ *Git işlemlerini görsel bir arayüz aracılığıyla gerçekleştirmenizi sağlar. GUI araçları, Git komutlarını grafiksel butonlar ve menüler aracılığıyla kullanmanıza olanak tanır.
+
 CLI : Commond Line Interface
+*Komut satırı üzerinden Git komutlarını girerek Git işlemlerini gerçekleştirmeyi ifade eder. Git in en temel ve güçlü kullanım şeklidir.
+
 
 Yedekleme yapmak
 Proje Takibini sağlamak
@@ -24,7 +28,6 @@ Projeyi bitirmeyi hızlandırmak
 
 
 
-#######################################################################################################################
 #######################################################################################################################
 #######################################################################################################################
 git --help
@@ -48,6 +51,42 @@ git config --system
 
 #######################################################################################################################
 #######################################################################################################################
+Staged Area
+
+* Git teki staged area (hazırlık alanı), genellikle değişikliklerin commit işlemine dahil edilmeden önce hazırlandığı alandır
+ve bazen index olarak da  adlandırılır.Ancak, hazırlık alanı terimi, günümüzde daha yaygın ve standart hale gelmiştir.
+
+
+Unstaged Area
+* Çalışma dizinindeki ve staged area daki değişiklikler arasında bulunan alandır. Bu aşama, henüz staged area ya eklenmemiş,
+dolayısıyla commit işlemine dahil edilmemiş değişiklikleri içerir.
+
+
+git status
+* unstaged değişiklikleri gösterir.
+
+
+git ls-files --stage
+*Staged area daki dosyaları ve durumlarını listeler.
+
+
+
+#######################################################################################################################
+#######################################################################################################################
+-- STATUS
+
+git status
+*Mevcut Git deposunun durumunu gösterir. Çalışma Dizinindede ve staging area da  yapılan değişlikleri listeler ve hangi dosyaların
+takip edilip eğilmediğini, hangi değişikliklerin stage edilip edilmediğini gösterir.
+
+git restore --staged f5e0847cf157d96a734f476820d59b899ddc7d0b 
+* staging area dan bir dosyayı çıkararak onu tekrar çalışma dizinine geri alır. "git add" komutu ile stage edilmiş değişiklikleri
+geri almak için kullanılır.
+
+
+
+#######################################################################################################################
+#######################################################################################################################
 -- INIT / REMOTE
 
 echo "# senior-devops1" >> README.md
@@ -56,6 +95,9 @@ git add .
 git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/nakzoo/senior-devops1.git
+
+#git remote set-url origin git@github.com:nakzoo/senior-devops1.git
+
 git push -u origin main
 # git push origon --set upstream origin main
 
@@ -102,20 +144,6 @@ iptal eder ve dosyaları en son commit edilmiş hallerine geri döndürür.
 
 git add deneme1.txt deneme2.txt deneme3.txt
 *Aynı anda sadece benim istediğim dosyaları ekle
-
-
-
-#######################################################################################################################
-#######################################################################################################################
--- STATUS
-
-git status
-*Mevcut Git deposunun durumunu gösterir. Çalışma Dizinindede ve staging area da  yapılan değişlikleri listeler ve hangi dosyaların
-takip edilip eğilmediğini, hangi değişikliklerin stage edilip edilmediğini gösterir.
-
-git restore --staged f5e0847cf157d96a734f476820d59b899ddc7d0b 
-* staging area dan bir dosyayı çıkararak onu tekrar çalışma dizinine geri alır. "git add" komutu ile stage edilmiş değişiklikleri
-geri almak için kullanılır.
 
 
 
@@ -359,7 +387,7 @@ git push --force
 **Conflict yememek için
 git add . 
 git stash
-git chech out main
+git checkout main
 git pull
 git rebase main
 git stash apply stash@{0}
@@ -368,7 +396,7 @@ git stash apply stash@{0}
 
 #######################################################################################################################
 #######################################################################################################################
---  TAG
+-- TAG
 
 *Belirli bir noktadaki proje durumunu işaretlemek için kullanılan bir referanstır. Etiketler genellikle sürüm numaralarını belirtmek için kullanılır
 
