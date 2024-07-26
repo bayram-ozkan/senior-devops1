@@ -30,10 +30,10 @@ Projeyi bitirmeyi hızlandırmak
 git --help
 
 git config global -l                
-*Kullanıcı düzeyince yapılandırılan ayarları gösterir 
+*Kullanıcı düzeyince yapılandırılan ayarları gösterir
 
-git config --global user.name       
-git config --global user.email
+git config --global user.name  "name" 
+git config --global user.email "email"
 *Git kullanıcısının global düzeydeki kullanıcı adı ve e-posta adresini ayarlamak için kullanılır. Bu bilgiler, her commit
  yaptığınızda commitlerinize eklenir.Eğer bu ayarları yapmazsanız, Git her commit işleminde bu bilgileri sizden sorar.
 
@@ -114,7 +114,7 @@ git status
 takip edilip eğilmediğini, hangi değişikliklerin stage edilip edilmediğini gösterir.
 
 git restore --staged f5e0847cf157d96a734f476820d59b899ddc7d0b 
-* staging area'dan bir dosyayı çıkararak onu tekrar çalışma dizinine geri alır. "git add" komutu ile stage edilmiş değişiklikleri
+* staging area dan bir dosyayı çıkararak onu tekrar çalışma dizinine geri alır. "git add" komutu ile stage edilmiş değişiklikleri
 geri almak için kullanılır.
 
 
@@ -480,14 +480,14 @@ git checkout master
 git pull origin master
 git checkout feature
 git rebase master
-git add <çözülen-dosya>                 ->conflict in çözülmesi
+git add <çözülen-dosya>                 -> conflict in çözülmesi
 git rebase --continue
 git push origin feature --force
 
 
 
 #######################################################################################################################
-##################################################################  #####################################################
+#######################################################################################################################
 -- MERGE ve REBASE FARKI
 
 
