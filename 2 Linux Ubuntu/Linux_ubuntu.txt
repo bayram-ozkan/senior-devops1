@@ -1,0 +1,64 @@
+################################################################################################################################################################
+#############################################################   Linux  ##########################################################################################
+
+1-) Kernel (Çekirdek)  
+- Yazılım ile donanım arasındaki haberleşmeyi sağlıyor
+- Bütün kaynakların yönetimi sağlanıyor.
+
+2-) Shell (Kabuk)
+- Kullanıcıdan(client) gelen istekleri(request) kernel a iletiyor.
+- bash : Bourne Again Shell (linux default kabuk)
+
+################################################################################################################################################################
+################################################################################################################################################################
+-- Ubuntu
+
+- Linux dağıtımlarının en popüler olanı
+- 1990 yıllarında Linus Torvarlds ekibiyle linux yazılıyor.
+- 2004 yılında Ubuntu tanıtılıyor.
+- Unix işletim sistemi paralı 
+- Linux işletim sistemleri ücretsiz
+- Linux open source (Açik kaynak kodludur)
+- GNU : Gnu is Not Unit
+- GPL : Free as in Freedom (GNU  General Public License)
+- Ubuntu Debian çekirdeğini kullanan dağıtımdır.
+- Ubuntu: Güney Afrika dilinde -> Başka nesneye saygı.
+
+
+################################################################################################################################################################
+################################################################################################################################################################
+-- PORT
+
+ *Bir ağda veri iletimi için kullanılan mantıksal bir iletişim noktasını ifade eder. Bilgisayar ağlarında, portlar farklı uygulamaların ve hizmetlerin aynı 
+ağ bağlantısı üzerinden iletişim kurabilmesini sağlar. Her port, belirli bir hizmet veya uygulama için atanmış bir numaraya sahiptir.
+
+Bilgisayar binary(2lik taban)
+2^16 = 65536
+0-65536 Port
+
+0 <= PORT <= 1023 (Well Know Port)
+
+ 20/21   => FTP (File Transfer Protocol)
+ 22      => SSH (Secure Shell) and SCP (Secure Copy Protocol)
+ 23      => Telnet
+ 25      => SMTP (Simple Mail Transfer Protocol)
+ 53      => DNS (Domain Name System)
+ 67/68   => DHCP (Dynamic Host Configuration Protocol)
+ 80      => HTTP (Hypertext Transfer Protocol)
+ 110     => POP3 (Post Office Protocol version 3)
+ 143     => IMAP (Internet Message Access Protocol)
+ 443     => HTTPS (HTTP Secure)
+
+
+1024 <= PORT =< 49151 (Registed Port)
+
+ 3036    => MySQL
+ 5432    => PostgreSQL
+ 27017   => MongoDB 
+ 6379    => Redis
+ 8080    => Tomcat defaılt
+
+
+49152 <= PORT <= 65535 (Dynamic Port)
+ 
+
