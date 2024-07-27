@@ -9,6 +9,8 @@
 - Kullanıcıdan(client) gelen istekleri(request) kernel a iletiyor.
 - bash : Bourne Again Shell (linux default kabuk)
 
+
+
 ################################################################################################################################################################
 ################################################################################################################################################################
 -- Ubuntu
@@ -23,7 +25,117 @@
 - GPL : Free as in Freedom (GNU  General Public License)
 - Ubuntu Debian çekirdeğini kullanan dağıtımdır.
 - Ubuntu: Güney Afrika dilinde -> Başka nesneye saygı.
+ 
 
+Operation       Format      Installing
+ Ubuntu          deb         apt, apt-get
+ CentOS          rpm         yum
+ Fedora          rpm         dnf 
+
+
+
+################################################################################################################################################################
+################################################################################################################################################################
+-- UBUNTU/ WINDOWS
+
+Dosya sistem yapısı
+
+    Windows   -> FAT(Eski), NTFS(Yeni)
+    Linux     -> Ext2,3,4
+
+
+Linux Dosya Sistemi
+    /boot
+    *Çekirdek (kernel) ve önyükleme (boot) dosyalarının bulunduğu dizindir. Önyükleme sırasında gerekli olan çekirdek ve initramfs dosyalarını içerir.
+
+    /dev  
+    * Fiziksel donanımlara erişim sağlamak için kullanılan cihaz dosyalarının bulunduğu dizindir. Donanım cihazları, sanal dosyalar aracılığıyla bu dizin altında temsil edilir
+
+    /etc   
+    * Sistem yapılandırma dosyalarının bulunduğu dizindir. Sistem servislerinin ve uygulama yapılandırmalarının çoğu bu dizin altında bulunur.
+
+    /home
+    * Kullanıcıların kişisel dizinlerinin bulunduğu dizindir. Her kullanıcı için bir alt dizin içerir 
+
+    /lib   
+    * Sistem kütüphanelerinin bulunduğu dizindir. Bu dizin, çekirdek ve kullanıcı uygulamaları tarafından kullanılan paylaşımlı kütüphaneleri içerir.
+
+    /media 
+    * Çıkarılabilir medya (CD-ROM, USB sürücüler vb.) için bağlama noktalarının bulunduğu dizindir. Bu dizin, otomatik olarak bağlanan aygıtları içerir.
+
+    /opt
+    * Üçüncü taraf uygulamalarının ve paketlerinin yerleştirildiği dizindir. Genellikle büyük, bağımsız uygulamalar bu dizine kurulur.
+
+    /proc
+    * Çalışan çekirdek ve sistem bilgilerini temsil eden sanal dosyalar içerir. Bu dosyalar, sistemin mevcut durumunu incelemek için kullanılır.
+
+    /root
+    * root kullanıcısının ana dizinidir. Sistem yöneticisinin kişisel dosyalarını ve yapılandırmalarını içerir.
+
+    /snap
+    * Snap paketlerinin kurulu olduğu dizindir. Snap, uygulamaları ve bağımlılıklarını izole bir şekilde paketleyen bir sistemdir.
+
+    /tmp
+    * Geçici dosyaların bulunduğu dizindir. Bu dizin, sistemde geçici olarak oluşturulan dosyaları ve verileri içerir. Genellikle sistem yeniden başlatıldığında temizlenir.
+
+    /usr
+    * Kullanıcı programları, yardımcı programlar ve kütüphaneler için kullanılan dizindir. 
+
+    /bin
+    * Temel sistem komutlarının bulunduğu dizindir. Bu dizin, sistemin temel işlevleri için gerekli olan ikili dosyaları (binaries) içerir. 
+
+    /srv
+    * Servis verilerinin bulunduğu dizindir. Web sunucuları, FTP sunucuları gibi servisler tarafından kullanılan veri dosyalarını içerir.
+
+    /run
+    * Sistemin çalışma süresi (runtime) verilerini içerir. Örneğin, sistemin başlangıçta oluşturduğu geçici dosyalar ve kilit dosyaları burada bulunur.
+
+    /lost+found
+    * Dosya sisteminin hatalardan sonra kurtarılan dosyalarını içerir. Dosya sistemi kontrolü sırasında (fsck) kaybolmuş veya bozulmuş dosyalar bu dizinde bulunabilir.
+
+    /var
+    * Değişken veri dosyalarını içerir. Log dosyaları, posta kutuları, geçici dosyalar gibi veriler burada bulunur. Alt dizinleri arasında /var/log (log dosyaları), /var/tmp (geçici dosyalar), ve /var/spool (sıralı işler) bulunur.
+
+    /sys
+    * Çekirdek bilgilerini ve cihazları temsil eden sanal dosyaların bulunduğu dizindir. Donanım ve çekirdek bilgilerini görüntülemek ve yönetmek için kullanılır.
+
+    /mnt
+    * Geçici olarak dosya sistemlerinin bağlandığı dizindir. Kullanıcılar genellikle aygıtları veya dosya sistemlerini burada bağlarlar.
+
+
+
+################################################################################################################################################################
+################################################################################################################################################################
+
+d rwx rwx r-x
+d : directory
+r : read    (2^2= 4)
+w : write   (2^1= 2)
+e : execute (2^0= 1)
+rwx : Kullanıcı
+rwx : Group
+r-x : Diğer
+
+################################################################################################################################################################
+-- Bilgi 
+
+free -m
+* Bellek kullanımını MB cinsinden gösterir. -h seçeneği de kullanılarak insan tarafından okunabilir biçimde (örneğin, GB) gösterilebilir.
+
+cat /proc/cpuinfo
+* CPU hakkında detaylı bilgi sağlar. İşlemci modeli, çekirdek sayısı, saat hızı gibi bilgileri içerir.
+
+lshw -short
+* Kısa formatta donanım özetini görüntüler. Daha ayrıntılı bilgi için lshw komutunu kullanabilirsiniz.
+
+df -h
+* İnsan tarafından okunabilir biçimde (örneğin, GB, MB) disk kullanımını gösterir.
+
+uname -a
+* Çekirdek sürümü, işletim sistemi, makine donanım adı gibi daha ayrıntılı bilgi sağlar.
+
+hostname
+* Basit olarak hostname komutunu çalıştırdığınızda, sistemin mevcut ağ ismini (hostname) görüntüler.
 
 ################################################################################################################################################################
 ################################################################################################################################################################
@@ -62,3 +174,35 @@ Bilgisayar binary(2lik taban)
 49152 <= PORT <= 65535 (Dynamic Port)
  
 
+
+################################################################################################################################################################
+################################################################################################################################################################
+-- HTTP  STATUS
+
+
+Http Status Code  
+
+    1XX   -> Information
+    2XX   -> Success
+    3XX   -> Redirection
+    4XX   -> Client Error
+    5XX   -> Server Error
+
+
+
+################################################################################################################################################################
+################################################################################################################################################################
+--  Linux Komutları  
+
+apt-get update    
+* Paketlerimizin versiyon farkları araştırılsın ve liste güncellensin
+
+apt-get upgrade
+* Sadece mevcut paketlerin güncellenmesini sağlar ve bağımlılıklarda değişiklik yapmaz.
+
+apt-get dist-upgrade
+* Paketlerin güncellenmesini sağlar, gerektiğinde bağımlılıkları günceller ve bazı paketleri ekleyebilir veya kaldırabilir. Mevcutsa kernal i yükseltir.
+
+
+
+################################################################################################################################################################
