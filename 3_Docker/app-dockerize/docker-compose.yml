@@ -1,7 +1,6 @@
 version:  "3.8"
 
-
-
+#services
 services:
   backend:
     container_name: blog
@@ -13,7 +12,7 @@ services:
     networks:
       - blog_network
   
-
+#networks
 networks:
   blog_network:
     name: blog_network
