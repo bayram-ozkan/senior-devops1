@@ -1,0 +1,80 @@
+#########################################################################################################################################
+#########################################################################################################################################
+-- DOCKER
+
+*Docker, konteynerleştirme teknolojisini kullanarak uygulamaların ve onların bağımlılıklarının taşınabilir, izole edilmiş ortamlar içinde 
+çalıştırılmasını sağlar. Docker, geliştiricilerin uygulamalarını bir "container" içinde paketlemelerine ve bu konteynerleri herhangi bir 
+ortamda çalıştırmalarına olanak tanır. Bu sayede, uygulama her yerde aynı şekilde çalışır, böylece "çalışıyor ama benim bilgisayarımda"
+sorunu ortadan kalkar.
+
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
+
+
+Bara-Metal
+Virtualization
+Containerzation
+Hyper-V 
+Hypervisor  -> Aynı donanım üzerinde birde fazla işletim sistemi çalıştırılması
+
+Docker 2008 yılında Soloman Hykes tarafından Go diliyle yazılmıştır.
+LXC (Linux Container) üzerine  kurulu bir container engineer
+CD/CD
+
+Docker neden kullanıyoruz?
+Hızlı derleme, test, dağıtım, ölçeklendirme
+Docker, Hypervisior katmanı olmayan LXC(Linux Container)üzerine kurulu olan  açık kaynak kodlu izole bir yapıdır
+
+Docker CE (Comminity Edition) Ücretsiz, küçük ve orta projelerde,  Minor branch patch (7 Ay destek veriyor)
+Docker EE (Enterprice Edition) Ücretli (Destek), Büyük projelerde, Minor branch patch ( 24 Ay destek veriyor)
+
+
+Image
+* Uygulamızın çalışabilmesi için gerekli tüm bileşenleri (yazılım, kütüphane, configürasyon dosyaları)  içeren bir şablondur.
+
+Container
+* Bir Docker image ından oluşturulmuş izole bir çalışma ortamıdır. Uygulamanın çalışması içn tüm bileşenleri içerir ve 
+çalışturıldığı anda image ın bir kopyası olarak haraket eder.
+
+
+Dockerfile
+* Bir Docker image inın nasıl oluşturulaçağını tanımlayan betik dosyasıdır.
+
+
+Network
+* Container ların birbirleriyle ve dış dünya ile iletişim kurmasını sağlayan bir ağ yapısıdır. Docker, container lar  arasında izole ağlar oluşturarak uygulama bileşenlerini birbirine bağlar.
+
+Volume
+*Container ların  veri paylaşımını ve kalıcılığını sağlamak için kullanılan bir veri depolama birimidir. Hacimler, container lar kapatıldığında bile verilerin korunmasını sağlar.
+
+docker-compose
+*  Docker Compose, çoklu container  uygulamaları tanımlamak ve çalıştırmak için kullanılan bir araçtır. 
+
+swarm
+* Docker conteiner  ve hizmetlerini birden fazla ana makinede (node) koordine eden bir orkestrasyon aracıdır. Swarm, Docker container larını  yüksek erişilebilirlik 
+ve ölçeklenebilirlik için yönetilmesini sağlar.
+
+DockearHub
+* Docker imajlarının depolandığı ve paylaşıldığı platform.
+
+
+Docker Daemon
+* Docker'ın temel bileşenlerinden biridir ve Docker container  ve image ların  yönetimini sağlayan bir arka plan hizmetidir. Docker istemcisi ile Docker Daemon 
+arasında bir REST API aracılığıyla iletişim kurulur. Docker Daemon genellikle bir sistem hizmeti olarak çalışır ve yapılandırılabilir.
+
+Docker CLI (Commond Line Interface)
+* Komut satırı üzerinden Docker işlemlerini gerçekleştirmek için kullanılır.Bu sayede kullanıcılar Docker Daemon ile etkileşimde bulunarak  Docker container larını ve image larını 
+yönetebilir. Docker CLI, kapsamlı komut seti ve otomasyon yetenekleriile Docker ekosisteminin temel bileşenlerinden biridir.
+
+
+Docker Engine
+* Docker ekosisteminin kalbinde yer alır ve temel bileşendir. Image lerin  oluşturulması, container ların çalıştırılması ve yönetilmesi  işlemlerini gerçekleştiren bir platformdur.
+Hem geliştirici hem de üretim ortamlarında kullanılır. Docker Daemon ve Docker CLI in birleşimi olan Docker Engine, uygulamaların taşınabilirliğini ve yönetimini kolaylaştırır.
+
+
+
+
+
+Docker daemon - Rest API  - Client Docker CLI
