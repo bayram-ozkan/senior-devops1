@@ -42,5 +42,4 @@ services:
 #Networks
 networks:
   springreactmysql:
-  name: springreactmysql
   driver: bridge
