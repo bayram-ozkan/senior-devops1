@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "Spring Boot  mysql"
+echo "Spring Boot - Mysql"
 
-docker-compose up  -f docker-compose-mysql.yml -d 
+docker-compose  -f docker-compose-mysql.yml  up

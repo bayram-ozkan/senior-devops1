@@ -5,7 +5,7 @@
 # spring.datasource.password=root
 
 
-
+#Services
 services:
   #backend
   backend:
@@ -21,14 +21,14 @@ services:
     networks:
       - springreactmysql
 
-  # Mysql 8.0
+  #Mysql 8.0
   mysql_depends_on:
     image: mysql:8.0
     ports:
-      -"3307:3306"
+      - 3307:3306
     expose:
       - "3306"    
-    networks:
+    networks: 
       - springreactmysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
@@ -39,7 +39,8 @@ services:
   
 
 
-# Networks
+#Networks
 networks:
   springreactmysql:
+  name: springreactmysql
   driver: bridge
