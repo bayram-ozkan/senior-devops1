@@ -1,0 +1,22 @@
+#########################################################################################################################################
+#########################################################################################################################################
+-- SonarQube
+
+* Yazılım geliştirme sürecinde sunduğu 29 den fazla programlama dilindeki desteğiyle, kod analizlerini ve güvenlik açıklarını tespit etmek 
+için kodun statik analizi ile otomatik incelemeler yaparak kod kalitesinin sürekli denetimi için geliştirilmiş açık kaynaklı bir platformdur.
+
+Açık kaynaklıdır.
+Kodu derlemez.
+Kodları sadece denetler.
+Server olarak kurulur.
+Belli bir kurala göre kodlarını tarar ve size hatalarınızı gösterir.
+Gösterilen hatalara alternatif çözümler önerir.
+CI/CD araçlarıyla entegre edilebilir.
+
+
+
+
+
+#########################################################################################################################################
+#########################################################################################################################################
+#########################################################################################################################################
