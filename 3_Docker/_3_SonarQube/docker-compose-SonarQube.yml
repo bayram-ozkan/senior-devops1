@@ -1,0 +1,70 @@
+version: "3.8"
+
+#  Services
+services:
+
+# Postgresql
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: on-failure
+    environment:
+      POSTGRES_USER: sonarqube
+      POSTGRES_PASSWORD: sonarqube
+      POSTGRES_DB: sonarqube
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    expose:
+      - "5432"
+    networks:
+      -jdkpostgressonarqubenetwork
+
+
+# JDK
+  jdk:
+    image: openjdk:latest
+    container_name: jdk
+    command: sleep infinity
+    networks:
+      - jdkpostgressonarqubenetwork
+    volumes:
+      - jdk_volume:/usr/src/myapp
+    working_dir: /usr/src/myapp
+
+
+
+
+# SonarQube
+  sonarqube:
+    image: sonarqube:latest
+    container_name: sonarqube
+    environment:
+      SONARQUBE_JBC_URL: jdbc:postgresql://postgres_depends_on:5432/sonarqube
+      SONARQUBE_JBC_USERNAME: sonarqube
+      SONARQUBE_JBC_PASSWORD: sonarqube
+    depends_on:
+      - postgres_depends_on
+    ports:
+     - "1111:9000"
+    networks:
+      - jdkpostgressonarqubenetwork
+
+
+
+
+# Volumes
+volumes:
+  postgres_volume:
+    driver: local
+  jdk_volume:
+    driver: local
+
+
+
+# Networks
+networks:
+  jdkpostgressonarqubenetwork:
+    name: jdkpostgressonarqubenetwork
+    driver: bridge
