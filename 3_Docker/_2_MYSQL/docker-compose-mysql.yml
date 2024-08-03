@@ -15,7 +15,9 @@ services:
     container_name: blog_react
     image: blog_react
     restart: always
-    build: .
+    build:
+      context: . 
+      dockerfile: Dockerfile.Mysql
     ports: 
       - "4444:4444"
     environment:
