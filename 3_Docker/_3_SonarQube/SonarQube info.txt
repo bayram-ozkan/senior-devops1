@@ -12,7 +12,19 @@ Server olarak kurulur.
 Belli bir kurala göre kodlarını tarar ve size hatalarınızı gösterir.
 Gösterilen hatalara alternatif çözümler önerir.
 CI/CD araçlarıyla entegre edilebilir.
+Default da  9000 port unda çalışır.
 
+SonarQube  çalışması için 
+    2 GB RAM
+    JDK(17)
+    PostgreSQL
+
+SonarQube iki bileşe ayrılır
+    Scanner
+        Statik(compailer edilmiş) kodları tarıyor. 
+
+    Server
+        Hizmet veren(metrikleri gösteren) 
 
 
 
