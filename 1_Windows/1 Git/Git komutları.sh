@@ -187,18 +187,50 @@ git reset comment_id
 *Git branch inin HEAD ini belirtilen commit e taşır. Bu komut, commit-id ile belirttiğiniz commit teki duruma geri döner
 ve bu işlemi çeşitli modlarda gerçekleştirebilir.
 
+
+    # -- mixed (default)
+    git reset --mixed comment_id  -> commite  geri döner, staging area değişikliklerini geri alır.
+
     # --soft
     git reset --soft comment_id   -> commit e  geri döner, staging area değişikliklerini korur.
 
-
-    # -- mixed
-    git reset --mixed comment_id  -> commite  geri döner, staging area değişikliklerini geri alır.
-
-
+  
     # --hard
     git reset --hard commend_id   -> commit e geri döner, staging area ve çalışma dizinindeki değişiklikleri kaybeder.
 
     #git reset HEAD~1             -> Bir önceki commit e geri döner, staging area değişikliklerini geri alır.
+
+
+
+#######################################################################################################################
+#######################################################################################################################
+-- REVART 
+
+git revert
+*Yapılan bir değişikliği geri almak için kullanılır. Bu işlem, yeni bir commit oluşturarak yapılan değişikliği tersine çevirir.
+Revert, diğer geliştiricilerle çalışırken daha güvenli bir seçenektir çünkü commit geçmişini korur ve başkalarının çalışmalarını etkilemez.
+
+git revert commit_id
+
+
+
+#######################################################################################################################
+#######################################################################################################################
+--- RESET ve REVERT FARKI
+
+* Commit Geçmişi:
+Revert, commit geçmişini korur ve yeni bir commit oluşturarak değişiklikleri geri alır. 
+Reset ise commit geçmişini yeniden yazarak işlemleri geri alır.
+
+
+* Güvenlik: 
+Revert, diğer geliştiricilerle çalışırken daha güvenli bir seçenektir çünkü başkalarının çalışmalarını etkilemez. 
+Reset, diğer geliştiricilerin geçmişi kaybetmesine ve çalışmalarının çakışmasına neden olabilir.
+
+
+* Kullanım Senaryoları:
+Revert, yanlışlıkla yapılan değişiklikleri geri almak veya başkalarıyla çalışırken yapılan değişiklikleri düzeltmek için kullanılabilir.
+Reset, daha çok yerel değişikliklerinizi düzenlemek ve commit geçmişini temizlemek için kullanılabilir.
 
 
 
